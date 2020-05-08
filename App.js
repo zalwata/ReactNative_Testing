@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
+import Header from './components/header'
 
 export default function App() {
 
@@ -13,13 +14,14 @@ export default function App() {
     <View style={styles.container}>
 
       {/* {header} */}
-      <View style ={ styles.content} >
+      <Header/>
+      <View style ={ styles.content }>
         {/* {to form} */}
-        <View>
+        <View style ={ styles.list }>
           <FlatList
-            data = {todos}
-            renderItem = {({item}) => (
-              <Text>{item.text}</Text>
+            data = { todos }
+            renderItem = {({ item }) => (
+              <Text>{ item.text }</Text>
             )}
           />
         </View>
@@ -34,7 +36,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   content: {
-    flex: 1,
-    backgroundColor: '#fff',
+    padding : 40,
   },
+  list: {
+    marginTop: 20,
+  }
+
 });
