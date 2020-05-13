@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Alert } from 'react-native';
 import Header from './components/header'
 import TodoItem from './components/todoItem'
 import AddTodo from './components/addTodo'
@@ -17,12 +17,27 @@ const pressHandler = (key) => {
   })
 }
 
+const submitHandler = (text) => {
+  
+  if(text.length > 3)
+  {
+    setTodos((prevTodos) => {
+      return [
+        {text: text, key: Math.random().toString()},
+        ...prevTodos
+      ]
+    })
+  } else{
+    Alert.alert('fail');
+  }
+}
+
   return (
     <View style={styles.container}>
       {/* {header} */}
       <Header />
       <View style = {styles.content}>
-        <AddTodo />
+        <AddTodo submitHandler = {submitHandler}/>
         <View style = {styles.list}>
           <FlatList
             data = {todos}
