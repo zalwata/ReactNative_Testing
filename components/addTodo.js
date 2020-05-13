@@ -14,18 +14,19 @@ export default function AddTodo() {
             style = {styles.input}
             placeholder = 'new todo...'
             onChangeText = {(val) => changeHandler(val)}
-
           />
+          <Button color = {'coral'} onPress = {() => console.log(text)} title = 'add todo'/>
       </View>
     
   );
 }
 
 const styles = StyleSheet.create({
-  header: {
-    backgroundColor: 'coral',
-    paddingTop: 38,
-    height: 80,
-  },
+    input: {
+        marginBottom: 10,
+        paddingHorizontal: 8,
+        paddingVertical: 6,
+        borderBottomWidth: 1,
 
+  },
 });
